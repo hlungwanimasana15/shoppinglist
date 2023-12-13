@@ -47,18 +47,28 @@ function Display() {
 
       < Add />
       <br></br>
-      <Card style={{ width: '18rem' }}>
-        {data.map((item) => (
-          <li key={item.id}>
-            <h3>{item.name}</h3>
-            <p>{item.descriptions}</p>
-            <p>{item.quantity}</p>
+      <Card style={{ width: '22rem' }}>
+      <Card.Body>
+        <Card.Title>Your Item List</Card.Title>
+        <ul style={{ listStyle: 'none', padding: 0 }}>
+          {data.map((item) => (
+            <li key={item.id} style={{ marginBottom: '10px', borderBottom: '1px solid #ccc', paddingBottom: '10px' }}>
+              <h3>{item.name}</h3>
+              <p>{item.descriptions}</p>
+              <p>{item.quantity}</p>
 
-            <Button onClick={() => handleEdit(item.id)}><AiOutlineEdit /></Button>
-            <Button onClick={() => dispatch(deleteItems(item.id))}>< AiOutlineDelete /></Button>
-          </li>
-        ))}
-      </Card>
+              <Button variant="primary" onClick={() => handleEdit(item.id)}>
+                <AiOutlineEdit /> Edit
+              </Button>
+              {' '}
+              <Button variant="danger" onClick={() => dispatch(deleteItems(item.id))}>
+                <AiOutlineDelete /> Delete
+              </Button>
+            </li>
+          ))}
+        </ul>
+      </Card.Body>
+    </Card>
 
       {show && < EditB show={show} selectItem={selectItem} setShow={setShow} />}
 

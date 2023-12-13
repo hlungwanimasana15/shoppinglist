@@ -23,7 +23,9 @@ function Add() {
         quantity:quantity
        }))
        
-       
+       setName("");
+       setDescriptions("");
+       setQuantity("");
 
     }
 
@@ -60,7 +62,7 @@ function Add() {
       </FloatingLabel>
       <br /> 
 
-      <Button type="submit" variant="dark" onClick={handleSubmit}>Add</Button>
+      <Button  variant="dark" onClick={handleSubmit}>Add</Button>
     </div>
   )
 }
